@@ -1,6 +1,28 @@
 <script>
+    import Swiper from "swiper/swiper-bundle.min";
     export default {
         name: "HomeClients",
+        data() {
+            return {
+                slider: null,
+                slides: [
+                    ["auto-speed", "baby-swim"],
+                    ["beauty-box", "fast-banana"],
+                    ["greens-food-suppliers", "james-and-sons"],
+                    ["space-cube", "the-dance-studio"],
+                    ["the-web-works", "yoga-baby"],
+                ],
+            };
+        },
+        mounted() {
+            this.$nextTick(() => {
+                this.slider = new Swiper(".js-clients-slider", {
+                    autoplay: true,
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                });
+            });
+        },
     };
 </script>
 
@@ -9,72 +31,27 @@
         <div class="clients__slider">
             <div class="clients-slider">
                 <div class="clients-slider__wrapper js-clients-slider">
-                    <div class="clients-slider__slide">
-                        <img
-                            class="clients-slider__image"
-                            src="dist/assets/image/clients/auto-speed.png"
-                            alt="auto speed"
-                        />
-                        <img
-                            class="clients-slider__image"
-                            src="dist/assets/image/clients/baby-swim.png"
-                            alt="baby swim"
-                        />
-                    </div>
-
-                    <div class="clients-slider__slide">
-                        <img
-                            class="clients-slider__image"
-                            src="dist/assets/image/clients/beauty-box.png"
-                            alt="beauty box"
-                        />
-                        <img
-                            class="clients-slider__image"
-                            src="dist/assets/image/clients/fast-banana.png"
-                            alt="fast banana"
-                        />
-                    </div>
-
-                    <div class="clients-slider__slide">
-                        <img
-                            class="clients-slider__image"
-                            src="dist/assets/image/clients/greens-food-suppliers.png"
-                            alt="greens food suppliers"
-                        />
-                        <img
-                            class="clients-slider__image"
-                            src="dist/assets/image/clients/james-and-sons.png"
-                            alt="james and sons"
-                        />
-                    </div>
-
-                    <div class="clients-slider__slide">
-                        <img
-                            class="clients-slider__image"
-                            src="dist/assets/image/clients/space-cube.png"
-                            alt="space cube"
-                        />
-                        <img
-                            class="clients-slider__image"
-                            src="dist/assets/image/clients/the-dance-studio.png"
-                            alt="the dance studio"
-                        />
-                    </div>
-
-                    <div class="clients-slider__slide">
-                        <img
-                            class="clients-slider__image"
-                            src="dist/assets/image/clients/the-web-works.png"
-                            alt="the web works"
-                        />
-                        <img
-                            class="clients-slider__image"
-                            src="dist/assets/image/clients/yoga-baby.png"
-                            alt="yoga baby"
-                        />
+                    <div class="swiper-wrapper">
+                        <div
+                            class="swiper-slide"
+                            v-for="(group, groupIndex) in slides"
+                            :key="groupIndex"
+                        >
+                            <div class="clients-slider__slide">
+                                <div
+                                    v-for="(slide, slideIndex) in group"
+                                    :key="slideIndex"
+                                    class="clients-slider__image"
+                                >
+                                    <img
+                                        :src="require(`@/assets/images/clients/${slide}.png`)"
+                                        :alt="slide"
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!--clients-slider__wrapper-->
             </div>
         </div>
 
@@ -82,7 +59,6 @@
             <button class="button" data-target-modal="order-modal">Присоединиться</button>
         </div>
     </div>
-    <!-- /.clients-->
 </template>
 
 <style lang="scss">
@@ -96,17 +72,21 @@
     }
 
     .clients-slider {
-        &__slide {
-            width: 450px;
-            margin: 0 10px;
-        }
         &__image {
-            display: block;
+            position: relative;
+            padding-bottom: 75%;
             margin-bottom: 20px;
             background-color: #ffffff;
             border-radius: 10px;
             &:first-child {
                 transform: translateX(-50%);
+            }
+            img {
+                position: absolute;
+                top: 50%;
+                padding: 10px;
+                transform: translateY(-50%);
+                box-sizing: border-box;
             }
         }
     }
@@ -118,11 +98,11 @@
             }
         }
 
-        .clients-slider {
-            &__slide {
-                max-width: 300px;
-            }
-        }
+        //.clients-slider {
+        //    &__slide {
+        //        max-width: 300px;
+        //    }
+        //}
     }
 
     @media (max-width: $tablet-small) {

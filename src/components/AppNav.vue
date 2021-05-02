@@ -60,20 +60,34 @@
         </button>
         <ul class="main-nav__list js-menu-navigation">
             <li class="main-nav__item">
-                <a href="/products" class="main-nav__link">Продукты</a>
+                <router-link
+                    :to="{ name: 'Products' }"
+                    exact-active-class="main-nav__link--active"
+                    class="main-nav__link"
+                >
+                    Продукты
+                </router-link>
             </li>
             <li class="main-nav__item main-nav__item--sub">
                 <a href="javascript:void(0);" class="main-nav__link">Информация</a>
                 <ul class="main-nav__submenu">
                     <li class="main-nav__item">
-                        <a href="/about" class="main-nav__link main-nav__link--sub"
-                            >О компании</a
+                        <router-link
+                            :to="{ name: 'About' }"
+                            class="main-nav__link main-nav__link--sub"
+                            exact-active-class="main-nav__link--active"
                         >
+                            О компании
+                        </router-link>
                     </li>
                     <li class="main-nav__item">
-                        <a href="/internship" class="main-nav__link main-nav__link--sub"
-                            >Стажировка</a
+                        <router-link
+                            :to="{ name: 'Internship' }"
+                            class="main-nav__link main-nav__link--sub"
+                            exact-active-class="main-nav__link--active"
                         >
+                            Стажировка
+                        </router-link>
                     </li>
                 </ul>
             </li>

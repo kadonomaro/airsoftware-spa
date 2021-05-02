@@ -1,14 +1,21 @@
-<template>
-    <div class="home">
-        <h1>Vue</h1>
-    </div>
-</template>
-
 <script>
+    import HomeHero from "../components/HomeHero";
+    import SectionWrapper from "../components/SectionWrapper";
+    import HomeClients from "../components/HomeClients";
     export default {
         name: "Home",
+        components: { HomeClients, SectionWrapper, HomeHero },
         data() {
             return {};
         },
     };
 </script>
+
+<template>
+    <div class="home">
+        <home-hero></home-hero>
+        <section-wrapper theme="dark">
+            <home-clients></home-clients>
+        </section-wrapper>
+    </div>
+</template>

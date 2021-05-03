@@ -1,7 +1,8 @@
 <script>
     import AppHeader from "./components/AppHeader";
+    import AppModal from "@/components/AppModal";
     export default {
-        components: { AppHeader },
+        components: { AppModal, AppHeader },
     };
 </script>
 
@@ -9,5 +10,6 @@
     <div id="app">
         <app-header></app-header>
         <router-view />
+        <app-modal></app-modal>
     </div>
 </template>

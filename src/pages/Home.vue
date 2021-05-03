@@ -11,7 +11,11 @@
 <template>
     <div class="home">
         <home-hero></home-hero>
-        <section-wrapper theme="dark">
+        <section-wrapper
+            title="Уже воспользовались нашими продуктами"
+            subtitle="Десятки довольных клиентов по всему миру"
+            theme="dark"
+        >
             <home-clients></home-clients>
         </section-wrapper>
     </div>

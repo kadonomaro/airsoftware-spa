@@ -1,37 +1,23 @@
 <script>
     import AppNav from "@/components/AppNav";
+    import AppLogo from "@/components/AppLogo";
+    import BaseButton from "@/components/ui/BaseButton";
     export default {
         name: "AppHeader",
-        components: { AppNav },
-        computed: {
-            isHomePage() {
-                return this.$route.name === "Home";
-            },
-        },
+        components: { BaseButton, AppLogo, AppNav },
     };
 </script>
 
 <template>
     <header class="page-header">
         <div class="page-header__logo">
-            <div class="logo">
-                <div class="logo__image">
-                    <img
-                        v-if="isHomePage"
-                        :src="require('@/assets/images/logo.svg')"
-                        alt="Airsoftware"
-                    />
-                    <router-link v-else class="logo__link" :to="{ name: 'Home' }">
-                        <img :src="require('@/assets/images/logo.svg')" alt="Airsoftware" />
-                    </router-link>
-                </div>
-            </div>
+            <app-logo></app-logo>
         </div>
         <div class="page-header__nav">
             <app-nav></app-nav>
         </div>
         <div class="page-header__order">
-            <button class="button" data-target-modal="order-modal">Присоединиться</button>
+            <base-button @click="$popup.show('modal-order')">Присоединиться</base-button>
         </div>
     </header>
 </template>

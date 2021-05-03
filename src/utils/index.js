@@ -22,4 +22,14 @@ function getRandomSymbol(start, end) {
     return String.fromCharCode(getRandomRange(start, end));
 }
 
-export { chunk, shuffle, getRandomRange, getRandomSymbol };
+function isMobile(width = 1023) {
+    return (
+        (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+        ) &&
+            window.matchMedia(`(max-width: ${width}px)`).matches) ||
+        window.matchMedia(`(max-width: ${width}px)`).matches
+    );
+}
+
+export { chunk, shuffle, getRandomRange, getRandomSymbol, isMobile };

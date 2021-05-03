@@ -2,6 +2,8 @@
     export default {
         name: "SectionWrapper",
         props: {
+            title: String,
+            subtitle: String,
             theme: {
                 type: String,
                 default: "light",
@@ -14,8 +16,8 @@
 <template>
     <section class="section" :class="[theme ? `section--${theme}` : '']">
         <header class="section__header">
-            <h2 class="section__title">Уже воспользовались нашими продуктами</h2>
-            <span class="section__subtitle">Десятки довольных клиентов по всему миру</span>
+            <h2 v-if="title" class="section__title">{{ title }}</h2>
+            <span v-if="subtitle" class="section__subtitle">{{ subtitle }}</span>
         </header>
         <slot></slot>
     </section>

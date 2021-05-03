@@ -55,7 +55,7 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-        margin-top: -80px;
+        margin-top: -101px;
         &__canvas {
             position: absolute;
             z-index: -1;

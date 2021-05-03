@@ -1,7 +1,9 @@
 <script>
     import Swiper from "swiper/swiper-bundle.min";
+    import BaseButton from "@/components/ui/BaseButton";
     export default {
         name: "HomeClients",
+        components: { BaseButton },
         data() {
             return {
                 slider: null,
@@ -23,7 +25,7 @@
                         delay: 1,
                         disableOnInteraction: false,
                     },
-                    speed: 5000,
+                    speed: 7000,
                     freeMode: true,
                     slidesPerView: 4,
                     spaceBetween: 20,
@@ -63,7 +65,7 @@
         </div>
 
         <div class="clients__order">
-            <button class="button" data-target-modal="order-modal">Присоединиться</button>
+            <base-button @click="$popup.show('modal-order')">Присоединиться</base-button>
         </div>
     </div>
 </template>
@@ -87,7 +89,7 @@
         }
         &__image {
             position: relative;
-            padding-bottom: 75%;
+            padding-bottom: 55.5%;
             margin-bottom: 20px;
             background-color: #ffffff;
             border-radius: 10px;
@@ -111,11 +113,11 @@
             }
         }
 
-        //.clients-slider {
-        //    &__slide {
-        //        max-width: 300px;
-        //    }
-        //}
+        .clients-slider {
+            &__slide {
+                max-width: 300px;
+            }
+        }
     }
 
     @media (max-width: $tablet-small) {

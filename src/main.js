@@ -3,7 +3,13 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "@/assets/css/style.scss";
+import "@/components/AppModal/Plugin";
 import "swiper/swiper-bundle.css";
+import "../event-bus";
+
+const ModalOrder = () => import("@/components/ModalOrder");
+
+Vue.component("modal-order", ModalOrder);
 
 Vue.config.productionTip = false;
 

@@ -1,13 +1,10 @@
 <script>
-    import HomeHero from "../components/HomeHero";
-    import SectionWrapper from "../components/SectionWrapper";
-    import HomeClients from "../components/HomeClients";
+    import HomeHero from "@/components/HomeHero";
+    import SectionWrapper from "@/components/SectionWrapper";
+    import HomeClients from "@/components/HomeClients";
     export default {
         name: "Home",
         components: { HomeClients, SectionWrapper, HomeHero },
-        data() {
-            return {};
-        },
     };
 </script>
 

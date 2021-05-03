@@ -17,7 +17,14 @@
         mounted() {
             this.$nextTick(() => {
                 this.slider = new Swiper(".js-clients-slider", {
-                    autoplay: true,
+                    loop: true,
+                    loopAdditionalSlides: 3,
+                    autoplay: {
+                        delay: 1,
+                        disableOnInteraction: false,
+                    },
+                    speed: 5000,
+                    freeMode: true,
                     slidesPerView: 4,
                     spaceBetween: 20,
                 });
@@ -72,6 +79,12 @@
     }
 
     .clients-slider {
+        .swiper-wrapper {
+            transition-timing-function: linear !important;
+        }
+        &__wrapper {
+            overflow: hidden;
+        }
         &__image {
             position: relative;
             padding-bottom: 75%;

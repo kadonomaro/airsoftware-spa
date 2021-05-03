@@ -18,11 +18,11 @@
                 <div class="logo__image">
                     <img
                         v-if="isHomePage"
-                        src="/dist/assets/image/logo.svg"
+                        :src="require('@/assets/images/logo.svg')"
                         alt="Airsoftware"
                     />
                     <router-link v-else class="logo__link" :to="{ name: 'Home' }">
-                        <img src="/dist/assets/image/logo.svg" alt="Airsoftware" />
+                        <img :src="require('@/assets/images/logo.svg')" alt="Airsoftware" />
                     </router-link>
                 </div>
             </div>

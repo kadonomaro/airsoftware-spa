@@ -2,9 +2,10 @@
     import HomeHero from "@/components/HomeHero";
     import SectionWrapper from "@/components/SectionWrapper";
     import HomeClients from "@/components/HomeClients";
+    import HomeAbout from "@/components/HomeAbout";
     export default {
         name: "Home",
-        components: { HomeClients, SectionWrapper, HomeHero },
+        components: { HomeAbout, HomeClients, SectionWrapper, HomeHero },
     };
 </script>
 
@@ -17,6 +18,13 @@
             theme="dark"
         >
             <home-clients></home-clients>
+        </section-wrapper>
+        <section-wrapper
+            title="История успеха"
+            subtitle="Мы проделали путь длиною в жизнь"
+            theme="dark"
+        >
+            <home-about></home-about>
         </section-wrapper>
     </div>
 </template>

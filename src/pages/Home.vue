@@ -1,11 +1,16 @@
 <script>
+    import { metaInfo } from "@/libs/MetaInfo";
     import HomeHero from "@/components/HomeHero";
     import SectionWrapper from "@/components/SectionWrapper";
     import HomeClients from "@/components/HomeClients";
     import HomeAbout from "@/components/HomeAbout";
+
     export default {
         name: "Home",
         components: { HomeAbout, HomeClients, SectionWrapper, HomeHero },
+        metaInfo() {
+            return metaInfo.get("home");
+        },
     };
 </script>
 

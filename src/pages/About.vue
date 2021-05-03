@@ -1,6 +1,11 @@
 <script>
+    import { metaInfo } from "@/libs/MetaInfo";
+
     export default {
         name: "About",
+        metaInfo() {
+            return metaInfo.get("about");
+        },
     };
 </script>
 

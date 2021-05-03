@@ -1,6 +1,11 @@
 <script>
+    import { metaInfo } from "@/libs/MetaInfo";
+
     export default {
         name: "Policy",
+        metaInfo() {
+            return metaInfo.get("policy");
+        },
     };
 </script>
 

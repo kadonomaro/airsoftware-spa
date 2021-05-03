@@ -1,8 +1,13 @@
 <script>
+    import { metaInfo } from "@/libs/MetaInfo";
     import AppHeader from "./components/AppHeader";
     import AppModal from "@/components/AppModal";
+
     export default {
         components: { AppModal, AppHeader },
+        metaInfo() {
+            return metaInfo.get("home");
+        },
     };
 </script>
 

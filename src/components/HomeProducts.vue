@@ -13,9 +13,13 @@
         <div class="container">
             <div class="products__inner">
                 <div class="products__tabs">
-                    <base-tabs :initial-tab-index="1">
-                        <template slot="tab-trigger-0">Address Book</template>
-                        <template slot="tab-panel-0">
+                    <base-tabs
+                        :initial-tab-index="1"
+                        active-tab-class="products__tabs-trigger--active"
+                        inactive-tab-class="products__tabs-trigger"
+                    >
+                        <template slot="tab-trigger-1">Address Book</template>
+                        <template slot="tab-panel-1">
                             <div class="products-item">
                                 <span class="products-item__title">
                                     <a
@@ -108,8 +112,8 @@
                                 </div>
                             </div>
                         </template>
-                        <template slot="tab-trigger-1">To-do Application</template>
-                        <template slot="tab-panel-1">
+                        <template slot="tab-trigger-2">To-do Application</template>
+                        <template slot="tab-panel-2">
                             <div class="products-item">
                                 <span class="products-item__title">
                                     <a
@@ -202,8 +206,8 @@
                                 </div>
                             </div>
                         </template>
-                        <template slot="tab-trigger-2">Airganizer</template>
-                        <template slot="tab-panel-2">
+                        <template slot="tab-trigger-3">Airganizer</template>
+                        <template slot="tab-panel-3">
                             <div class="products-item">
                                 <span class="products-item__title">
                                     <a
@@ -298,8 +302,8 @@
                                 </div>
                             </div>
                         </template>
-                        <template slot="tab-trigger-3">Photo Finder</template>
-                        <template slot="tab-panel-3">
+                        <template slot="tab-trigger-4">Photo Finder</template>
+                        <template slot="tab-panel-4">
                             <div class="products-item">
                                 <span class="products-item__title">
                                     <a
@@ -413,6 +417,30 @@
             display: flex;
             justify-content: center;
             margin-bottom: 30px;
+        }
+        &__tabs-trigger {
+            margin-bottom: 10px;
+            padding: 7px 15px;
+            color: $color-dark-gray;
+            font-family: inherit;
+            font-size: 18px;
+            text-decoration: none;
+            background-color: transparent;
+            border: none;
+            border-radius: 5px;
+            transition: color 0.1s ease-in, background-color 0.1s ease-in;
+            cursor: pointer;
+            &:hover {
+                background-color: lighten($color-medium-gray, 30%);
+            }
+        }
+        &__tabs-trigger--active {
+            color: #ffffff;
+            background-color: $color-medium-gray;
+            &:hover {
+                color: #ffffff;
+                background-color: $color-medium-gray;
+            }
         }
         &__order {
             text-align: center;

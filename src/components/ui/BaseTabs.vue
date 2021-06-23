@@ -3,6 +3,8 @@
         name: "BaseTabs",
         props: {
             initialTabIndex: Number,
+            activeTabClass: String,
+            inactiveTabClass: String,
         },
         data() {
             return {
@@ -13,10 +15,10 @@
             tabPanelSlotName() {
                 return `tab-panel-${this.activeTabIndex}`;
             },
-            tabHeadCount() {
+            tabTriggersCount() {
                 return Object.keys(this.$slots).filter((slot) =>
                     slot.startsWith("tab-trigger")
-                );
+                ).length;
             },
         },
         methods: {
@@ -27,23 +29,23 @@
                 this.activeTabIndex = index;
             },
         },
-        mounted() {
-            console.log(this.$slots);
-        },
     };
 </script>
 
 <template>
     <div class="base-tabs">
-        <ul class="base-tabs__triggers">
-            <li
-                v-for="(trigger, index) in tabHeadCount"
-                :key="trigger"
-                class="base-tabs__trigger"
-                :class="{ active: activeTabIndex === index }"
-                @click="switchTab(index)"
-            >
-                <slot :name="tabHeadSlotName(index)"></slot>
+        <ul class="base-tabs__list">
+            <li v-for="index in tabTriggersCount" :key="index" class="base-tabs__item">
+                <button
+                    class="base-tabs__trigger"
+                    :class="{
+                        [`${inactiveTabClass}`]: inactiveTabClass,
+                        [`${activeTabClass}`]: activeTabClass && activeTabIndex === index,
+                    }"
+                    @click="switchTab(index)"
+                >
+                    <slot :name="tabHeadSlotName(index)"></slot>
+                </button>
             </li>
         </ul>
 
@@ -52,24 +54,17 @@
 </template>
 
 <style lang="scss">
-    .base-tabs__triggers {
+    .base-tabs__list {
         display: flex;
+        justify-content: center;
         margin: 0;
         padding: 0;
-        margin-left: 6px;
-        margin-top: -4px;
         list-style: none;
     }
 
     .base-tabs__trigger {
-        padding: 5px 18px;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
+        background-color: transparent;
+        border: none;
         cursor: pointer;
-        &.active {
-            background-color: #fff;
-            color: #333;
-            transition: 0.4s;
-        }
     }
 </style>

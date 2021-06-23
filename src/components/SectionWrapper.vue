@@ -33,23 +33,30 @@
         }
         &__title {
             margin: 0 0 15px;
-            color: #ffffff;
             font-size: 48px;
-        }
-        &__title--dark {
-            color: $color-dark-gray;
         }
         &__subtitle {
             display: block;
-            color: $color-medium-gray;
             font-size: 28px;
-        }
-        &__subtitle--dark {
-            color: $color-medium-dark-gray;
         }
     }
     .section--dark {
         background-color: $color-dark-gray;
+        .section__title {
+            color: #ffffff;
+        }
+        .section__subtitle {
+            color: $color-medium-gray;
+        }
+    }
+    .section--light {
+        background-color: $color-light-gray;
+        .section__title {
+            color: $color-dark-gray;
+        }
+        .section__subtitle {
+            color: $color-medium-dark-gray;
+        }
     }
 
     @media (max-width: $desktop-small) {

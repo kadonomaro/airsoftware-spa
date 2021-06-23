@@ -4,10 +4,11 @@
     import SectionWrapper from "@/components/SectionWrapper";
     import HomeClients from "@/components/HomeClients";
     import HomeAbout from "@/components/HomeAbout";
+    import HomeProducts from "@/components/HomeProducts";
 
     export default {
         name: "Home",
-        components: { HomeAbout, HomeClients, SectionWrapper, HomeHero },
+        components: { HomeProducts, HomeAbout, HomeClients, SectionWrapper, HomeHero },
         metaInfo() {
             return metaInfo.get("home");
         },
@@ -24,12 +25,21 @@
         >
             <home-clients></home-clients>
         </section-wrapper>
+
         <section-wrapper
             title="История успеха"
             subtitle="Мы проделали путь длиною в жизнь"
             theme="dark"
         >
             <home-about></home-about>
+        </section-wrapper>
+
+        <section-wrapper
+            title="Основные продукты"
+            subtitle="Прежде чем выбрать, нужно сравнить"
+            theme="light"
+        >
+            <home-products></home-products>
         </section-wrapper>
     </div>
 </template>

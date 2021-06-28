@@ -5,10 +5,18 @@
     import HomeClients from "@/components/HomeClients";
     import HomeAbout from "@/components/HomeAbout";
     import HomeProducts from "@/components/HomeProducts";
+    import BlogSubscribe from "@/components/BlogSubscribe";
 
     export default {
         name: "Home",
-        components: { HomeProducts, HomeAbout, HomeClients, SectionWrapper, HomeHero },
+        components: {
+            BlogSubscribe,
+            HomeProducts,
+            HomeAbout,
+            HomeClients,
+            SectionWrapper,
+            HomeHero,
+        },
         metaInfo() {
             return metaInfo.get("home");
         },
@@ -41,5 +49,7 @@
         >
             <home-products></home-products>
         </section-wrapper>
+
+        <blog-subscribe></blog-subscribe>
     </div>
 </template>

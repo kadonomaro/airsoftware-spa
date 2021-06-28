@@ -9,7 +9,7 @@
 </script>
 
 <template>
-    <div class="products section">
+    <div class="products">
         <div class="container">
             <div class="products__inner">
                 <div class="products__tabs">

@@ -1,5 +1,5 @@
 <script>
-    import FormWrapper from "@/components/FormWrapper";
+    import FormWrapper from "@/components/common/FormWrapper";
     export default {
         name: "ModalOrder",
         components: { FormWrapper },

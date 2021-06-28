@@ -1,15 +1,19 @@
 <script>
     import { metaInfo } from "@/libs/MetaInfo";
     import HomeHero from "@/components/HomeHero";
-    import SectionWrapper from "@/components/SectionWrapper";
+    import SectionWrapper from "@/components/common/SectionWrapper";
     import HomeClients from "@/components/HomeClients";
     import HomeAbout from "@/components/HomeAbout";
     import HomeProducts from "@/components/HomeProducts";
-    import BlogSubscribe from "@/components/BlogSubscribe";
+    import BlogSubscribe from "@/components/common/BlogSubscribe";
+    import HomeStages from "@/components/HomeStages";
+    import OurTeam from "@/components/common/OurTeam";
 
     export default {
         name: "Home",
         components: {
+            OurTeam,
+            HomeStages,
             BlogSubscribe,
             HomeProducts,
             HomeAbout,
@@ -50,6 +54,18 @@
             <home-products></home-products>
         </section-wrapper>
 
+        <section-wrapper title="Этапы работы" subtitle="От нуля до результата" theme="dark">
+            <home-stages></home-stages>
+        </section-wrapper>
+
         <blog-subscribe></blog-subscribe>
+
+        <section-wrapper
+            title="Наша команда"
+            subtitle="Поможем воплотить ваши самые смелые желания в реальность"
+            theme="dark"
+        >
+            <our-team :members-to-show="3"></our-team>
+        </section-wrapper>
     </div>
 </template>

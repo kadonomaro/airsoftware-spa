@@ -6,12 +6,12 @@
         props: {
             membersToShow: {
                 type: Number,
-                default: 6,
+                default: 5,
             },
         },
         computed: {
             teamInfo() {
-                return team.splice(0, this.membersToShow);
+                return [...team].splice(0, this.membersToShow);
             },
         },
         methods: {

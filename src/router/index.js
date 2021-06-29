@@ -31,6 +31,11 @@ const routes = [
         name: "Policy",
         component: () => import(/* webpackChunkName: "Policy" */ "../pages/Policy.vue"),
     },
+    {
+        path: "*",
+        name: "Error",
+        component: () => import(/* webpackChunkName: "Error" */ "../pages/Error.vue"),
+    },
 ];
 
 const router = new VueRouter({
